@@ -1,0 +1,55 @@
+<ion-view id="cart" title="My Cart">
+    <ion-content class="has-header">
+
+      <ion-list can-swipe="listCanSwipe">
+        <ion-item ng-repeat="(cart_item, item) in cart" ng-click="editItem(item.$id, cart_item)" ng-init="$last ? cartLoaded() : null">
+          
+          <div class="row">
+            <div class="col col-10">{{ item.item_qty}}</div>
+            <div class="col col-75">{{ item.item_name }}</div>
+            <div class="col">&pound;{{ item.item_qty *  item.item_price }}</div>
+          </div>
+
+          <ion-option-button class="button-assertive" ng-click="removeFromCart(item.$id)">
+            Delete
+          </ion-option-button>
+
+          <ion-option-button class="button-calm" ng-click="editItem(item.$id, cart_item)">
+            Edit
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+
+      <div class="row">
+        <div class="col">
+          <button class="button button-outline button-light add-more-items" ui-sref="categories">
+            add more items
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-details">
+        <ion-list>
+          <ion-item>
+            <div class="row">
+              <div class="col col-25 cart-total-label">
+                Total
+              </div>
+
+              <div class="col cart-total">
+                &pound;{{ get_cart_total() }}
+              </div> 
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+
+    </ion-content>
+
+    <div class="footer bar-footer">
+      <button ng-click="checkout()"  ng-disabled="{{ cart_empty() }}" class="button button-balanced button-block icon-right ion-android-arrow-forward">
+        CHECKOUT
+      </button>
+    </div>
+
+</ion-view>

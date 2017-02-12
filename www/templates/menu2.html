@@ -1,0 +1,27 @@
+<ion-view id="menu" title="{{category()}}">
+    <ion-content class="has-header" padding="false" ng-init="loadItems()">
+
+		<div class="row menu-item-container" ng-repeat="item in menu" ng-if="$index % 2 === 0">
+
+			<div class="conten col-100 menu-item" ng-if="$index < menu.length">	
+				<div class="list">
+					<a href="" class="item item-avatar item-icon-right">
+						<img ng-src="{{'img/fk/'+ menu[$index].image +'.jpg'}}" width="100%" />
+						<h2>{{menu[$index].name}}</h2>
+						<p>£{{menu[$index].price}}</p>
+						<!--<i ng-click="addToCart(menu[$index])" class="icon ion-ios-cart"></i>-->
+						<button ng-click="addToCart(menu[$index])" class="button icon ion-plus"></button>
+					</a>
+				</div>
+			</div>
+			{{showProductInfo()}}
+		</div>
+
+		<button ui-sref="myCart" ng-if="show_checkout()" class="button button-full button-balanced checkout-button" style="font-size: 17px">
+			Checkout
+			{{show_checkout()}}
+			<i class="icon ion-chevron-right padding-left"></i>
+		</button>
+
+	</ion-content>
+</ion-view>

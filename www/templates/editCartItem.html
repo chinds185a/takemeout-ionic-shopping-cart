@@ -1,0 +1,37 @@
+<ion-view id="edit-cart-item" title="{{ cart_item.item_name }}">
+    <ion-content class="has-header">
+
+      <ion-list>
+        <ion-item>
+
+          <div class="row item-qty">
+            <div class="col col-50">
+              <h2>Quantity</h2>
+            </div>
+
+            <div class="col edit-item-qty">
+              <div class="minus-qty" ng-click="decrementItem()">
+                  <i class="icon ion-minus"></i>
+              </div>
+
+              <div class="current-qty">
+                <h2>{{ cart_item.item_qty }}</h2>
+              </div>
+
+              <div class="plus-qty" ng-click="incrementItem()">
+                  <i class="icon ion-plus"></i>
+              </div>
+            </div>
+          </div>
+
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+    <div class="footer bar-footer">
+      <button ui-sref="myCart" ng-disabled="" class="button button-balanced button-block">
+        Update
+      </button>
+    </div>
+
+</ion-view>

@@ -1,0 +1,18 @@
+<ion-view id="menu-categories" title="Menu">
+    <ion-content class="has-header" padding="false" ng-init="loadCategory()">
+
+		<div class="row category-item-container" ng-repeat="item in category" ng-if="$index % 1 === 0">
+
+			<div class="conten col-100 category-item" ng-if="$index < category.length">	
+				<div class="list overlay" ng-click="viewCategory(category[$index].$id, category[$index].$value)" ng-style="{ 'background-image': 'url(img/fk/' + category[$index].$id + '.jpg)', 'background-size': 'cover' }">
+					<a class="item">
+						<h2>{{category[$index].$value}}</h2>
+						<!--<img ng-src="{{'img/fk/'+ category[$index].$id +'.jpg'}}" width="100%" />						-->
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+	</ion-content>
+</ion-view>
